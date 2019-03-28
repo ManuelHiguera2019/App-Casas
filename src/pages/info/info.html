@@ -1,0 +1,49 @@
+<!--
+  Generated template for the InfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>info</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-slides pager>
+
+        <ion-slide *ngFor = "let imagen of casa.ad.images">
+          <img src = 'https://img.segundamano.mx/medium/{{imagen.path}}'>
+        </ion-slide>
+
+    </ion-slides>
+
+    <ion-card>
+        <ion-card-header >
+          Informacion de esta propiedad
+        </ion-card-header>
+        <ion-card-content >
+          <p *ngIf = "casa.ad.hasOwnProperty('body')">
+                <b>Descripcion:</b> {{casa.ad.body}}
+          </p>
+          <br>
+          <p *ngIf = "casa.ad.ad_details.hasOwnProperty('estate_type')">
+              <b>Tipo:</b> b {{casa.ad.ad_details.estate_type.single.label}}
+          </p>
+          <p *ngIf = "casa.ad.locations.hasOwnProperty('list_price')">
+              <b>Precio:</b> {{casa.ad.list_price.label}}
+          </p>
+          <p *ngIf = "casa.ad.ad_details.hasOwnProperty('size')">
+              <b>Area:</b> {{casa.ad.ad_details.size.single.label}}
+          </p>
+          <p *ngIf = "casa.ad.ad_details.hasOwnProperty('bathrooms')">
+            <b>Sanitarios:</b> {{casa.ad.ad_details.bathrooms.single.label}}
+          </p>
+          <p *ngIf = "casa.ad.ad_details.hasOwnProperty('parking_lots')">
+              <b>Estacionamientos:</b> {{casa.ad.ad_details.parking_lots.single.label}}
+          </p>
+        </ion-card-content> 
+    </ion-card> 
+
+</ion-content>
